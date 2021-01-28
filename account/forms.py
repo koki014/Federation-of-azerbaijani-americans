@@ -7,7 +7,19 @@ class RegisterForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ("full_name", "email","birthday", "phone_number", "citizenship", "education", "current", "permoment", "member_of_ngo", "usa_year", "reasons", "mention")
+        fields = (
+            "full_name", 
+            "email","birthday", 
+            "phone_number", 
+            "citizenship", 
+            "education", 
+            "current", 
+            "permoment", 
+            "member_of_ngo", 
+            "usa_year", 
+            "reasons", 
+            "mention"
+        )
 
         widgets = {
             'full_name': forms.TextInput(
@@ -66,7 +78,7 @@ class RegisterForm(forms.ModelForm):
                     'placeholder': 'Permament/Mailing adress'
                 }
             ),
-            'member_of_ngo': forms.Textarea(
+            'member_of_ngo': forms.TextInput(
                 attrs={
                     'name': 'member',
                     'class': 'form-elements',
