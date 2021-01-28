@@ -17,7 +17,7 @@ class User(AbstractUser):
     education = models.CharField(_('education'), max_length=225)
     current = models.CharField(_('current'), max_length=225)
     permoment = models.CharField(_('permoment'), max_length=225)
-    memeber_of_ngo = models.CharField(_('memeber of ngo'), max_length=225)
+    member_of_ngo = models.CharField(_('member of ngo'), max_length=225)
     usa_year = models.IntegerField(_('usa year'), null=True)
     reasons = models.TextField(_('reasons'))
     mention = models.TextField(_('mention'))

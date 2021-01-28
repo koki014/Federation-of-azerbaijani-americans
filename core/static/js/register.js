@@ -7,8 +7,14 @@ function showTab(n) {
   x[n].style.display = "block";
   //... and fix the Next buttons:
  
-  if (n == (x.length -1)) {
-    document.getElementById("nextBtn").innerHTML = "Submit";
+  if (n == (x.length - 2)) {
+    // document.getElementById("nextBtn").innerHTML = `<input type="submit">`;
+    document.querySelector("#nextBtn").addEventListener('click', ()=> {
+      document.getElementById("nextId").innerHTML = `<input type="submit">`;
+    })
+
+    // element = document.getElementById("nextBtn")
+    // element.setAttribute("type", "submit")
   } else {
     document.getElementById("nextBtn").innerHTML = "Next";
   }
@@ -16,7 +22,10 @@ function showTab(n) {
   fixStepIndicator(n)
 }
 
+
+
 function nextPrev(n) {
+  
   // This function will figure out which tab to display
   var x = document.getElementsByClassName("tab");
   // Exit the function if any field in the current tab is invalid:
