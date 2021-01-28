@@ -8,5 +8,5 @@ app_name = 'core'
 
 
 urlpatterns = [
-    path("", HomePageView.as_view(), name="")
+    path("", HomePageView.as_view(), name="index")
 ]

@@ -1,12 +1,12 @@
 from django import forms
 from django.forms import widgets
-from .models import User
+from .models import DonationUser
 
 
 class RegisterForm(forms.ModelForm):
 
     class Meta:
-        model = User
+        model = DonationUser
         fields = (
             "full_name", 
             "email","birthday", 
@@ -115,6 +115,5 @@ class RegisterForm(forms.ModelForm):
             ),
 
         }
-
 
 

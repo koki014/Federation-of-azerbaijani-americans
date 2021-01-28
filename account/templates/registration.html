@@ -29,7 +29,7 @@
 <div style="background-color: white;" class="left col-md-6">
       <img  src="{% static 'images/logo.png' %}" alt="Logo">
       
-    <form class="needs-validation" novalidate id="regForm" action="" enctype="multipart/form-data">
+    <form class="needs-validation" method="POST" novalidate id="regForm" action="" enctype="multipart/form-data">
       {% csrf_token %}
       {{ form.none_field_errors }}
         <h1 class="content-head">Registration Form</h1>
