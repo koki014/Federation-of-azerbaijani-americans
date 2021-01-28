@@ -5,7 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 from .managers import CustomUserManager
 
 
-class CustomUser(AbstractUser):
+class User(AbstractUser):
     username = None
     email = models.EmailField(_('email address'), unique=True)
     
