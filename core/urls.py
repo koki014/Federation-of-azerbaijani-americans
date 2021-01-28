@@ -1,12 +1,14 @@
 from django.urls import path
 
 from .views import (
-    HomePageView
+    ContactView,
+    SubscriberView
 )
 
 app_name = 'core'
 
 
 urlpatterns = [
-    path("", HomePageView.as_view(), name="")
+    path("", ContactView.as_view(), name="index"),
+    path("", SubscriberView.as_view(), name='index')
 ]
