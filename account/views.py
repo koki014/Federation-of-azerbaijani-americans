@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 
 from django.views.generic import (
     CreateView,
-    View
+    TemplateView
 )
 from .models import DonationUser
 from .forms import RegisterForm
@@ -14,21 +14,12 @@ class RegisterCreateView(CreateView):
     model = DonationUser
     form_class = RegisterForm
     template_name = "registration.html"
-    success_url = reverse_lazy('core:index') 
-
-    # def form_valid(self, form):
-    #     user = form.save(commit=False)
-    #     user_email = user.email
-    #     print(user_obj, 'usero')
-    #     send_mail('subject', 'body of the message', 'tech.academy.docker@gmail.com', [user_email,])
-    #     form.save()
-    #     print(user)
-
-	
-    # def post(self, request, *args, **kwargs):
-    #     self.object = None
-    #     print(self.object)
-    #     print(request.session['email'], 'user1')
-    #     return super().post(request, *args, **kwargs)
+    success_url = reverse_lazy('account:register_done') 
 
 
+class RegisterDoneView(TemplateView):
+    template_name = 'congratulation.html'
+
+
+class DonateView(TemplateView):
+    template_name='donate1.html'
