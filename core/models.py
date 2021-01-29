@@ -24,7 +24,7 @@ class Contact(models.Model):
 class Subscriber(models.Model):
     __tablename__ = 'subscribers'
     # information
-    mail = models.EmailField(_('email'), max_length=125)
+    mail = models.EmailField(_('email'), max_length=125, unique=True)
 
     # moderations
     created_at = models.DateTimeField(auto_now_add=True)
