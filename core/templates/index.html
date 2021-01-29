@@ -415,20 +415,20 @@
             <hr class="section-line" style="width: 60px; margin: 50px 47%;">
 
         </div>
-        <form id="contactForm" name="sentMessage" novalidate="novalidate" method="post">
+        <form id="contactForm" action="contact_us" name="sentMessage" novalidate="novalidate" method="post">
             <div class="row align-items-stretch mb-5">
                 <div class="col-md-6">
                     {% csrf_token %}
-                    {{form.non_field_errors}}
+                    {{contact_form.non_field_errors}}
                     <div class="form-group">
-                        {{form.name}}
-                        {{form.name.errors}}
+                        {{contact_form.name}}
+                        {{contact_form.name.errors}}
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        {{form.email}}
-                        {{form.email.errors}}
+                        {{contact_form.email}}
+                        {{contact_form.email.errors}}
 
                         
                         <!-- <p class="help-block text-danger"></p> -->
@@ -438,8 +438,8 @@
                  
                 <div class="col-12">
                     <div class="form-group form-group-textarea mb-md-0">
-                        {{form.message}}
-                        {{form.message.errors}}
+                        {{contact_form.message}}
+                        {{contact_form.message.errors}}
                         <!-- <p class="help-block text-danger"></p> -->
                     </div>
                 </div>
@@ -493,16 +493,20 @@
           <h5 class=" mb-0">subscribe</h5>
           <br>
   
-          <div id="footer-email" class="form-group bg-white border rounded px-2 py-2 mb-2">
+          <form id="footer-email" method="POST" action="subscribe" class="form-group bg-white border rounded px-2 py-2 mb-2">
+            {% csrf_token %}
+            {{ subscribers_form.non_field_errors }}
             <div class="row">
                 <div  class="col"> 
-                    <input type="email" name="email"  class="form-control pl-3 shadow-none bg-transparent border-0" placeholder="Enter your email address">
+                    {{ subscribers_form.mail }}
+                    {{ subscribers_form.mail.errors }}
+                    <!-- <input type="email" name="email"  class="form-control pl-3 shadow-none bg-transparent border-0" placeholder="Enter your email address"> -->
                  </div>
                 <div class="col-auto"> <button type="submit" class="btn btn-block newsletter"> <img src="{% static 'images/Vector.svg' %}" alt=""></button> </div>
                 
         </div> 
         <!--Grid column-->
-      </div>
+      </form>
       <!--Grid row-->
     </div>
     <!-- Grid container -->
