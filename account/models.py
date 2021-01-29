@@ -9,7 +9,7 @@ from django.utils.translation import ugettext_lazy as _
 
 class DonationUser(models.Model):
     full_name = models.CharField(_('full name'), max_length=80 )
-    membership_id = models.CharField(_("Membership id"), max_length=50, default='', null=True, blank=True)
+    membership_id = models.CharField(_("Membership id"), max_length=1000000, default='', editable=False, null=True, blank=True)
     email = models.EmailField(_('email address'), unique=True)
     birthday = models.DateField(_("Birthday"), auto_now_add=False, auto_now=False)
     phone_number = models.CharField(_('phone number'), max_length=30)
@@ -34,10 +34,10 @@ class DonationUser(models.Model):
         verbose_name_plural = 'Donation Users'
 
     def save(self, *args, **kwargs):
+        super(DonationUser, self).save(*args, **kwargs)
         raw_id = uuid.uuid1()
         raw_membership_id = str(raw_id.int)[:6]
         self.membership_id = f'{raw_membership_id}{self.id}'
-        print(self.id, 'id-ss')
         send_mail('subject', f'This is ypu membership id {self.membership_id}', 'tech.academy.docker@gmail.com', [self.email,])
         super(DonationUser, self).save(*args, **kwargs)
 

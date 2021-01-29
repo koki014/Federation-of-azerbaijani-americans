@@ -234,7 +234,7 @@
  <header>
     <nav class="navbar navbar-expand-sm  ">
          <!-- Brand/logo -->                                                                          
-        <a class="navbar-brand js-scroll-trigger logo" href="#page-top"><img class="head-logo" src="{% static 'images/logo.png' %}" alt="Logo"> </a>
+        <a class="navbar-brand js-scroll-trigger logo" href="{% url 'core:index' %}"><img class="head-logo" src="{% static 'images/logo.png' %}" alt="Logo"> </a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             
                 <span class="navTrigger">
@@ -258,7 +258,7 @@
                     <a class="nav-link" href="#membership">Membership for Benefits</a>
                 </li>
                 <li class="nav-item">
-                    <a id="membership-btn" class="nav-link" href="./registration.html">Apply for Membership</a>
+                    <a id="membership-btn" class="nav-link" href="{% url 'account:register' %}">Apply for Membership</a>
                 </li>
             </ul>
 
