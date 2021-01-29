@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.translation import gettext as _
 
 class Contact(models.Model):
+    __tablename__ = 'contact'
     
     # information
     name = models.CharField(_('name'), max_length=30)
@@ -21,6 +22,7 @@ class Contact(models.Model):
 
 
 class Subscriber(models.Model):
+    __tablename__ = 'subscribers'
     # information
     mail = models.EmailField(_('email'), max_length=125)
 

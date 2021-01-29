@@ -32,7 +32,7 @@ class ContactForm(forms.ModelForm):
                 
             }
 
-class SubscriberForm(forms.Form):
+class SubscriberForm(forms.ModelForm):
     mail = forms.EmailField(max_length=125, widget=forms.EmailInput(attrs={
         'class': 'form-control pl-3 shadow-none bg-transparent border-0', 
         'placeholder': 'Enter your email address'

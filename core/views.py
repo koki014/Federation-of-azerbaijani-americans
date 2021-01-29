@@ -26,6 +26,7 @@ from .forms import ContactForm, SubscriberForm
 
 
 class HomePageView(View):
+    template_name = 'index.html'
 
     def get(self, request):
         contact_form = ContactForm(prefix='contact_form')
@@ -34,7 +35,7 @@ class HomePageView(View):
             'contact_form': contact_form,
             'subscribers_form': subscribers_form
         }
-        return render(request, 'index.html', context)
+        return render(request, self.template_name, context)
 
     def post(self, request):
         contact_form = ContactForm(prefix='contact_form')
@@ -45,15 +46,17 @@ class HomePageView(View):
         if action == 'contact_us':
             contact_form = ContactForm(request.POST, prefix='contact_form')
             if contact_form.is_valid():
-                form.save()
-                return redirect('')
-        elif action == 'subscribe':
-            contact_form = SubscriberForm(request.POST, prefix='subscribers_form')
+                contact_form.save()
+                return redirect('core:index')
+        if action == 'subscribe':
+            subscribers_form = SubscriberForm(request.POST, prefix='subscribers_form')
             if subscribers_form.is_valid():
-                form.save()
-                return redirect('')
+                subscribers_form.save()
+                return redirect('core:index')
         context = {
             'contact_form': contact_form,
             'subscribers_form': subscribers_form
         }
-        return render(request, 'index.html', context)
+        return render(request, self.template_name, context)
+
+
