@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <meta charset="UTF-8">
@@ -5,7 +6,7 @@
   <meta name="keywords" content="America,Azerbaijan">
   <meta name="description" content="The Federation of Azerbaijani Americans">
   <title>The Federation of Azerbaijani Americans</title>
-  <link rel="icon" href="./assets/images/logo.png" type="image/gif" sizes="16x16">
+  <link rel="icon" href="{% static 'images/logo.png' %}" type="image/gif" sizes="16x16">
 <!-- Bootstrap css link -->
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
  integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -19,15 +20,15 @@
  crossorigin="anonymous" />
 
  <!-- Own css link -->
- <link rel="stylesheet" href="./assets/css/donate1.css">
+ <link rel="stylesheet" href="{% static 'css/donate1.css' %}">
 <body>
     <div class="container-fluid">
 <div class="row">
   <div class="col-md-6">
-<img id="left" src="./assets/images/left-illustration.png" alt="">
+<img id="left" src="{% static 'images/left-illustration.png' %}" alt="">
   </div>
 <div class="right col-md-6">
-    <img src="./assets/images/logo.png" alt="">
+    <img src="{% static 'images/logo.png' %}" alt="">
 
     <h1 id="section-header">Donate</h1>
     <p id="section-text">Please provide your membership ID</p>

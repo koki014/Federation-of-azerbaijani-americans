@@ -38,7 +38,7 @@ class DonationUser(models.Model):
         raw_id = uuid.uuid1()
         raw_membership_id = str(raw_id.int)[:6]
         self.membership_id = f'{raw_membership_id}{self.id}'
-        send_mail('subject', f'This is ypu membership id {self.membership_id}', 'tech.academy.docker@gmail.com', [self.email,])
+        send_mail('subject', f'This is you membership id {self.membership_id}', 'tech.academy.docker@gmail.com', [self.email,])
         super(DonationUser, self).save(*args, **kwargs)
 
     def __str__(self):
