@@ -9,7 +9,7 @@ app_name = 'account'
 
 urlpatterns = [
     path("register/", RegisterCreateView.as_view(), name="register"),
-    path("congratulations/", RegisterDoneView.as_view(), name="register_done"),
-    path("donante/", DonateView.as_view(), name='donate' )
+    path("congratulation/", RegisterDoneView.as_view(), name="register_done"),
+    path("donate/", DonateView.as_view(), name='donate' )
 
 ]

@@ -290,12 +290,18 @@
                         US business environments.
 
                     </p>
-                    <button id="donate-btn" class="buttons border-0">
-                     <a class="link-style" href="./donate1.html">Donate</a>   
+                    <button id="donate-btn" class="buttons border-0" onclick="donate_btn()">
+                    <a class="link-style">Donate</a>   
                     </button>
+                        <script>
+                            function donate_btn()
+                            {
+                                location.href = "{% url 'account:donate' %}";
+                            } 
+                        </script>
                 </div>
                 <div class="col-md-6"> 
-<img class="right-img" src="{% static 'images/right-illustration.png' %}" alt="Image">
+                <img class="right-img" src="{% static 'images/right-illustration.png' %}" alt="Image">
                 </div>
             </div>
         </div>
