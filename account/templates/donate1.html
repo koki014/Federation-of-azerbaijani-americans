@@ -32,21 +32,36 @@
 
     <h1 id="section-header">Donate</h1>
     <p id="section-text">Please provide your membership ID</p>
-    <form class="needs-validation" novalidate>
-     
+    <form method="POST" class="needs-validation" novalidate>
+      {% csrf_token %}
+      {{ form.none_field_errors }}
       <div class="form-row">
           <label for="validationCustom03"></label>
-          <input  class="form-control form-elements"  placeholder="ID" name="id" id="validationCustom03" required>
+          <p>{{ form.membership_id }}</p>
+          <p>{{ form.membership_id.errors }}</p>
+          <!-- <input  class="form-control form-elements"  placeholder="ID" name="id" id="validationCustom03" required> -->
           <div class="invalid-feedback">
             your email adress in invalid          </div>
       
         
   
-      <button class="btn btn-primary" id="simple" type="submit">Donate</button>
+      <button class="btn btn-primary" id="simple" onclick="donate_btn()">Donate</button>
       <br>
-      <button class="btn btn-primary" id="ananoymous" type="submit">Donate as Anonymous</button>
+      <button class="btn btn-primary" id="ananoymous" onclick="donate_ananoymous_btn()">Donate as Anonymous</button>
 
     </form>
+      <script>
+        function donate_btn()
+        {
+            this.setAttribute('type', 'submit');
+        } 
+      </script>
+      <script>
+        function donate_ananoymous_btn()
+        {
+          this.setAttribute('type', 'submit');
+        } 
+      </script>
     
     <!-- <form id="regForm" class="g-3 needs-validation" novalidate action=""> -->
         <!-- One "tab" for each step in the form: -->

@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
+from django.urls import reverse_lazy
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -67,6 +69,11 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    # 'customers.backends.DonationUserBackend',
 ]
 
 WSGI_APPLICATION = 'ffa.wsgi.application'
@@ -142,3 +149,8 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'tech.academy.docker@gmail.com'
 EMAIL_HOST_PASSWORD = 'suqmnhaxezvemyhn'
+
+
+LOGIN_URL = reverse_lazy('account:login')
+
+LOGIN_REDIRECT_URL = reverse_lazy('core:index')

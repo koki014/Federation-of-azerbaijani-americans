@@ -4,12 +4,12 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
-# from .managers import UserManager
+from .managers import UserManager
 
 
 class DonationUser(models.Model):
     full_name = models.CharField(_('full name'), max_length=80 )
-    membership_id = models.CharField(_("Membership id"), max_length=1000000, default='', editable=False, null=True, blank=True)
+    membership_id = models.CharField(_("Membership id"), max_length=1000000, default='', null=True, blank=True)
     email = models.EmailField(_('email address'), unique=True)
     birthday = models.DateField(_("Birthday"), auto_now_add=False, auto_now=False)
     phone_number = models.CharField(_('phone number'), max_length=30)
@@ -26,6 +26,7 @@ class DonationUser(models.Model):
     #moderations
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    is_active = models.BooleanField(_("Active"), default=True)
 
 
     class Meta:
@@ -40,6 +41,10 @@ class DonationUser(models.Model):
         self.membership_id = f'{raw_membership_id}{self.id}'
         send_mail('subject', f'This is you membership id {self.membership_id}', 'tech.academy.docker@gmail.com', [self.email,])
         super(DonationUser, self).save(*args, **kwargs)
+
+    USERNAME_FIELD = ['membership_id']
+
+    objects = UserManager()
 
     def __str__(self):
         return self.email

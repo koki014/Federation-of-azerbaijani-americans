@@ -3,6 +3,9 @@ from django.forms import widgets
 from .models import DonationUser
 
 
+from django.contrib.auth.forms import UserCreationForm
+
+
 class RegisterForm(forms.ModelForm):
 
     class Meta:
@@ -116,4 +119,19 @@ class RegisterForm(forms.ModelForm):
 
         }
 
+class SignUpForm(UserCreationForm):
+    class Meta:
+        model = DonationUser
+        fields = ('membership_id',)
 
+        widgets = {
+            'membership_id': forms.TextInput(
+                attrs={
+                    "class": "form-elements", 
+                    "placeholder": "ID",
+                    "name": "id",
+                    "id": "validationCustom03",
+                    'required': True
+                }
+            )
+        }
