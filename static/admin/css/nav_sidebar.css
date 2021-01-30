@@ -5,7 +5,7 @@
     display: none;
 }
 
-.toggle-nav-sidebar {
+/* .toggle-nav-sidebar {
     z-index: 20;
     left: 0;
     display: none;
@@ -117,4 +117,4 @@
     .main.shifted > #nav-sidebar + .content {
         max-width: 100%;
     }
-}
+} */
