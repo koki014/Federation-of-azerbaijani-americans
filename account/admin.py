@@ -6,4 +6,4 @@ from .models import DonationUser
 class DonationUser(admin.ModelAdmin):
     readonly_fields=('membership_id',)
     ordering = ('email',)
-    search_fields = ('email',)
+    search_fields = ('full_name',)
