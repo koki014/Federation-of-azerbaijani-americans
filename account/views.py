@@ -24,13 +24,13 @@ class RegisterDoneView(TemplateView):
 
 # class DonateView(TemplateView):
 #     form_class = SignUpForm
-#     template_name='donate1.html'
+#     template_name='donate.html'
 
 
     
 class DonateView(TemplateView):
     form_class = SignUpForm
-    template_name='donate1.html'
+    template_name='donate.html'
 
     def get(self, request):
         form = SignUpForm()
@@ -83,4 +83,4 @@ class DonationUserDetailView(DetailView):
 #             return redirect('users:profile')
 #     else:
 #         form = SignUpForm()
-#     return render(request, 'donate1.html', {'form': form})
+#     return render(request, 'donate.html', {'form': form})
