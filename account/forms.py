@@ -36,7 +36,7 @@ class RegisterForm(forms.ModelForm):
                 attrs={
                     'name': 'dd',
                     'class': 'form-elements',
-                    'placeholder': 'Date of Birth'
+                    'placeholder': 'Date of Birth. Format: YYYY-MM-DD'
                 }
             ),
             'email':  forms.EmailInput(
@@ -136,17 +136,3 @@ class SignUpForm(forms.Form):
             },
         ),
     )
-    # class Meta:
-    #     fields = ('membership_id',)
-
-        # widgets = {
-        #     'membership_id': forms.TextInput(
-        #         attrs={
-        #             "class": "form-elements", 
-        #             "placeholder": "ID",
-        #             "name": "id",
-        #             "id": "validationCustom03",
-        #             'required': True
-        #         }
-        #     )
-        # }

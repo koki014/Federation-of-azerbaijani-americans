@@ -1,4 +1,5 @@
 import uuid
+from django.urls import reverse_lazy
 from django.core.mail import send_mail
 from django.db import models
 from django.utils import timezone
@@ -48,3 +49,7 @@ class DonationUser(models.Model):
 
     def __str__(self):
         return self.email
+    
+    def get_absolute_url(self):
+        return reverse_lazy("account:profile", kwargs={"membership_id": self.membership_id})
+    
