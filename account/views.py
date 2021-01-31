@@ -11,6 +11,7 @@ from .models import DonationUser
 from .forms import RegisterForm, SignUpForm
 
 
+
 class RegisterCreateView(CreateView):
     model = DonationUser
     form_class = RegisterForm
@@ -22,12 +23,6 @@ class RegisterDoneView(TemplateView):
     template_name = 'congratulation.html'
 
 
-# class DonateView(TemplateView):
-#     form_class = SignUpForm
-#     template_name='donate.html'
-
-
-    
 class DonateView(TemplateView):
     form_class = SignUpForm
     template_name='donate.html'
@@ -37,7 +32,6 @@ class DonateView(TemplateView):
 
         context = {'form': form}
         return render(request, self.template_name, context)
-
 
     def post(self, request):
         form = SignUpForm(request.POST)
@@ -56,31 +50,8 @@ class DonateView(TemplateView):
         return render(request, self.template_name, context)
 
 
-
-    # def get(self, request):
-    #     form = SignUpForm()
-    #     return render(request, 'index.html', {"form": form})
-
-
 class DonationUserDetailView(DetailView):
     template_name = 'profile.html'
 
     def get_object(self):
         return self.request.user
-
-# def signup(request):
-#     if request.method == 'POST':
-#         form = SignUpForm(request.POST)
-#         print(form)
-#         if form.is_valid():
-#             user = form.save()
-#             membership_id = form.clean_data['membership_id']
-#             user = authenticate(request, membership_id=user.membership_id)
-#             if user is not None:
-#                 login(request, user)
-#             else:
-#                 print("user is not authenticated")
-#             return redirect('users:profile')
-#     else:
-#         form = SignUpForm()
-#     return render(request, 'donate.html', {'form': form})

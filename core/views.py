@@ -7,6 +7,7 @@ from .forms import ContactForm, SubscriberForm
 
 
 
+
 class HomePageView(View):
     template_name = 'index.html'
 
