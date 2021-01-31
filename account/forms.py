@@ -126,7 +126,15 @@ class RegisterForm(forms.ModelForm):
 class SignUpForm(forms.Form):
     membership_id = forms.CharField(
         required=True,
-        widget=forms.TextInput
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-elements", 
+                "placeholder": "ID",
+                "name": "id",
+                "id": "validationCustom03",
+                'required': True
+            },
+        ),
     )
     # class Meta:
     #     fields = ('membership_id',)
