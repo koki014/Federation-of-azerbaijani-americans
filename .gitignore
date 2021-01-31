@@ -1,5 +1,5 @@
 venv/
-_frontend/
+# _frontend/
 postgre_db/
 
 # Byte-compiled / optimized / DLL files

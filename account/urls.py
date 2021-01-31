@@ -4,16 +4,18 @@ from .views import (
     RegisterCreateView,
     RegisterDoneView,
     DonateView,
-    DonationUserUserDetailView
+    # signup,
+    DonationUserDetailView
 )
 
 app_name = 'account'
 
 urlpatterns = [
     path("register/", RegisterCreateView.as_view(), name="register"),
-    path('profile/',  login_required(DonationUserUserDetailView.as_view()), name='profile'),
     path("congratulation/", RegisterDoneView.as_view(), name="register_done"),
-    path("donate/", DonateView.as_view(), name='donate' )
+    path("donate/", DonateView.as_view(), name='donate'),
+    path('profile/',  DonationUserDetailView.as_view(), name='profile'), 
+    # path('profile/',  login_required(DonationUserDetailView.as_view()), name='profile'), 
 
 ]
 

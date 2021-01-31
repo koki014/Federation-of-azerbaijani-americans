@@ -8,19 +8,19 @@ from .managers import UserManager
 
 
 class DonationUser(models.Model):
-    full_name = models.CharField(_('full name'), max_length=80 )
+    full_name = models.CharField(_('full name'), max_length=80, blank=True)
     membership_id = models.CharField(_("Membership id"), max_length=1000000, default='', null=True, blank=True)
-    email = models.EmailField(_('email address'), unique=True)
-    birthday = models.DateField(_("Birthday"), auto_now_add=False, auto_now=False)
-    phone_number = models.CharField(_('phone number'), max_length=30)
-    citizenship = models.CharField(_('citizenship'), max_length=225 )
-    education = models.CharField(_('education'), max_length=225)
-    current = models.CharField(_('current'), max_length=225)
+    email = models.EmailField(_('email address'), unique=True, blank=True)
+    birthday = models.DateField(_("Birthday"), auto_now_add=False, auto_now=False, blank=True)
+    phone_number = models.CharField(_('phone number'), max_length=30, blank=True)
+    citizenship = models.CharField(_('citizenship'), max_length=225, blank=True)
+    education = models.CharField(_('education'), max_length=225, blank=True)
+    current = models.CharField(_('current'), max_length=225, blank=True)
     permoment = models.CharField(_('permoment'), max_length=225)
-    member_of_ngo = models.CharField(_('member of ngo'), max_length=225)
+    member_of_ngo = models.CharField(_('member of ngo'), max_length=225, blank=True)
     usa_year = models.IntegerField(_('usa year'), null=True)
-    reasons = models.TextField(_('reasons'))
-    mention = models.TextField(_('mention'))
+    reasons = models.TextField(_('reasons'), blank=True)
+    mention = models.TextField(_('mention'), blank=True)
 
 
     #moderations

@@ -58,19 +58,6 @@
     width:100%;
     text-align: center;
   }
-
-  .submit_btn {
-    background-color: #3C50E0;
-    color: #ffffff;
-    border: none;
-    padding: 14px 30px;
-    font-size: 17px;
-    font-family: Raleway;
-    cursor: pointer;
-    border-radius: 4px;
-    width: 100%;
-    text-align: center;
-  }
   
   button:hover {
     opacity: 0.8;

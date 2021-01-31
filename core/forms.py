@@ -43,3 +43,5 @@ class SubscriberForm(forms.ModelForm):
         fields = (
             'mail',
         )
+
+

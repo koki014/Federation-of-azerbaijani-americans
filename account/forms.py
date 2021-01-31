@@ -105,6 +105,8 @@ class RegisterForm(forms.ModelForm):
             'reasons': forms.Textarea(
                 attrs={
                     'name': '',
+                    "cols": "63",
+                    "rows": "7",
                     'class': 'form-elements',
                     'placeholder': 'Please mention the reasons why you wish to join FAA and your expectation from organization'
                 }
@@ -112,6 +114,8 @@ class RegisterForm(forms.ModelForm):
             'mention': forms.Textarea(
                 attrs={
                     'name': '',
+                    "cols": "63",
+                    "rows": "7",
                     'class': 'form-elements',
                     'placeholder': 'Please mention the way you are willing to contribute with FAA'
                 }
@@ -119,19 +123,22 @@ class RegisterForm(forms.ModelForm):
 
         }
 
-class SignUpForm(UserCreationForm):
-    class Meta:
-        model = DonationUser
-        fields = ('membership_id',)
+class SignUpForm(forms.Form):
+    membership_id = forms.CharField(
+        required=True,
+        widget=forms.TextInput
+    )
+    # class Meta:
+    #     fields = ('membership_id',)
 
-        widgets = {
-            'membership_id': forms.TextInput(
-                attrs={
-                    "class": "form-elements", 
-                    "placeholder": "ID",
-                    "name": "id",
-                    "id": "validationCustom03",
-                    'required': True
-                }
-            )
-        }
+        # widgets = {
+        #     'membership_id': forms.TextInput(
+        #         attrs={
+        #             "class": "form-elements", 
+        #             "placeholder": "ID",
+        #             "name": "id",
+        #             "id": "validationCustom03",
+        #             'required': True
+        #         }
+        #     )
+        # }
