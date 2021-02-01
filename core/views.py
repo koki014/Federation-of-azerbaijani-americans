@@ -30,7 +30,7 @@ class HomePageView(View):
             contact_form = ContactForm(request.POST, prefix='contact_form')
             if contact_form.is_valid():
                 contact_form.save()
-                return redirect('core:index')
+                return redirect('core:index', permanent=True)
         if action == 'subscribe':
             subscribers_form = SubscriberForm(request.POST, prefix='subscribers_form')
             if subscribers_form.is_valid():

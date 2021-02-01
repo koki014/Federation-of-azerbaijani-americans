@@ -91,6 +91,8 @@ class RegisterForm(forms.ModelForm):
             'member_of_ngo': forms.Textarea(
                 attrs={
                     'name': 'member',
+                    "cols": "63",
+                    "rows": "7",
                     'class': 'form-elements',
                     'placeholder': 'Member of other NGOs or Associations'
                 }
