@@ -136,5 +136,5 @@ class SignUpForm(forms.Form):
                 "id": "validationCustom03",
                 'required': True
             },
-        ),
-    )
+    ),
+)

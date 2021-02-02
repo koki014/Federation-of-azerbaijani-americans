@@ -249,13 +249,13 @@
          <div class="collapse navbar-collapse topnav" id="navbarResponsive">
             <ul style="right: 0 ;" class="navbar-nav ">
                 <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact Us</a>
+                    <a data-target="contact" data-toggle="goto" class="nav-link" href="javascript:;">Contact Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#aboutus">About Us</a>
+                    <a data-target="aboutus" data-toggle="goto" class="nav-link" href="javascript:;">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#membership">Membership for Benefits</a>
+                    <a class="nav-link" data-target="membership" data-toggle="goto" href="javascript:;">Membership for Benefits</a>
                 </li>
                 <li class="nav-item">
                     <a id="membership-btn" class="nav-link" href="{% url 'account:register' %}">Apply for Membership</a>
@@ -561,6 +561,7 @@ $("#mainListDiv").fadeIn();
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+        <script src="{% static 'js/main.js' %}"></script>
 </body>
 
 </html>

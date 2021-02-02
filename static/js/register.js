@@ -1,4 +1,5 @@
 var currentTab = 0; // Current tab is set to be the first tab (0)
+
 showTab(currentTab); // Display the current tab
 
 function showTab(n) {
@@ -8,7 +9,7 @@ function showTab(n) {
   //... and fix the Next buttons:
   y = document.getElementsByClassName("form-elements");
   console.log(y);
-  if (n == (x.length - 1)) {
+  if (n == (x.length - 2)) {
     for (let i = 0; i < y.length; i++) {
       console.log(y[i].value);
       if(y[i].value === "") {
@@ -18,7 +19,6 @@ function showTab(n) {
             document.getElementById("nextId").innerHTML = `<button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>`;
             })
       }
-      console.log("qaqa nagayrsan");
       document.querySelector("#nextBtn").addEventListener('click', ()=> {
         document.getElementById("nextId").innerHTML = `<input class="submit_btn" type="submit">`;
         })
@@ -38,10 +38,7 @@ function showTab(n) {
   fixStepIndicator(n)
 }
 
-
-
 function nextPrev(n) {
-  
   // This function will figure out which tab to display
   var x = document.getElementsByClassName("tab");
   // Exit the function if any field in the current tab is invalid:
@@ -50,6 +47,10 @@ function nextPrev(n) {
   x[currentTab].style.display = "none";
   // Increase or decrease the current tab by 1:
   y = document.getElementsByClassName("form-elements");
+
+  console.log('x', x);
+  console.log('y', y);
+  console.log('current', y);
 
   // for(let i=0; i < y.length; i++) {
   //   console.log(y[i]);
@@ -60,7 +61,6 @@ function nextPrev(n) {
   // }
   // if you have reached the end of the form...
   if (currentTab >= x.length) {
-    debugger
     // ... the form gets submitted:
     document.getElementById("regForm").submit();
     return false;
