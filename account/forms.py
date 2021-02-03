@@ -88,12 +88,12 @@ class RegisterForm(forms.ModelForm):
                     'placeholder': 'Member of other NGOs or Associations'
                 }
             ),
-            'member_of_ngo': forms.Textarea(
+            'member_of_ngo': forms.TextInput(
                 attrs={
                     'name': 'member',
                     "cols": "63",
                     "rows": "7",
-                    'class': 'form-elements member-text',
+                    'class': 'form-elements',
                     'placeholder': 'Member of other NGOs or Associations'
                 }
             ),
