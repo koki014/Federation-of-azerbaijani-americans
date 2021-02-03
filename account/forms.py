@@ -93,7 +93,7 @@ class RegisterForm(forms.ModelForm):
                     'name': 'member',
                     "cols": "63",
                     "rows": "7",
-                    'class': 'form-elements',
+                    'class': 'form-elements member-text',
                     'placeholder': 'Member of other NGOs or Associations'
                 }
             ),

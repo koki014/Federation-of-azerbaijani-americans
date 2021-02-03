@@ -1,5 +1,4 @@
 var currentTab = 0; // Current tab is set to be the first tab (0)
-
 showTab(currentTab); // Display the current tab
 
 function showTab(n) {
@@ -7,30 +6,9 @@ function showTab(n) {
   var x = document.getElementsByClassName("tab");
   x[n].style.display = "block";
   //... and fix the Next buttons:
-  y = document.getElementsByClassName("form-elements");
-  console.log(y);
-  if (n == (x.length - 2)) {
-    for (let i = 0; i < y.length; i++) {
-      console.log(y[i].value);
-      if(y[i].value === "") {
-        console.log("qaqa nagafbgfbgfnbngfyrsan");
-
-          document.querySelector("#nextBtn").addEventListener('click', ()=> {
-            document.getElementById("nextId").innerHTML = `<button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>`;
-            })
-      }
-      document.querySelector("#nextBtn").addEventListener('click', ()=> {
-        document.getElementById("nextId").innerHTML = `<input class="submit_btn" type="submit">`;
-        })
-        
-    }
-
-
-    
-  
-
-    // element = document.getElementById("nextBtn")
-    // element.setAttribute("type", "submit")
+ 
+  if (n == (x.length -1)) {
+    document.getElementById("button-cont").innerHTML = `<input class="submit_btn" type="submit"></input>`;
   } else {
     document.getElementById("nextBtn").innerHTML = "Next";
   }
@@ -46,19 +24,7 @@ function nextPrev(n) {
   // Hide the current tab:
   x[currentTab].style.display = "none";
   // Increase or decrease the current tab by 1:
-  y = document.getElementsByClassName("form-elements");
-
-  console.log('x', x);
-  console.log('y', y);
-  console.log('current', y);
-
-  // for(let i=0; i < y.length; i++) {
-  //   console.log(y[i]);
-  //   if(y[i].value != "") {
-      currentTab = currentTab + n;
-
-  //   }
-  // }
+  currentTab = currentTab + n;
   // if you have reached the end of the form...
   if (currentTab >= x.length) {
     // ... the form gets submitted:
@@ -80,9 +46,6 @@ function validateForm() {
     if (y[i].value == "") {
       // add an "invalid" class to the field:
       y[i].className += " invalid";
-      document.querySelector("#nextBtn").addEventListener('click', ()=> {
-        document.getElementById("nextId").innerHTML = `<button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>`;
-        })
 
       // and set the current valid status to false
       valid = false;
@@ -91,12 +54,10 @@ function validateForm() {
   // If the valid status is true, mark the step as finished and valid:
   if (valid) {
     document.getElementsByClassName("step")[currentTab].className += " finish";
-    document.querySelector("#nextBtn").addEventListener('click', ()=> {
-      document.getElementById("nextId").innerHTML = `<input class="submit_btn" type="submit">`;
-      })
   }
   return valid; // return the valid status
 }
+
 function fixStepIndicator(n) {
   // This function removes the "active" class of all steps...
   var i, x = document.getElementsByClassName("step");
