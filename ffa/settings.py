@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'paypal.standard.ipn',
     'ffa.apps.SuitConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -154,3 +155,5 @@ EMAIL_HOST_PASSWORD = 'suqmnhaxezvemyhn'
 LOGIN_URL = reverse_lazy('account:login')
 
 LOGIN_REDIRECT_URL = reverse_lazy('core:index')
+
+PAYPAL_TEST = True
