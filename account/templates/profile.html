@@ -35,7 +35,6 @@
                 <p id="section-text">Please provide your membership ID</p>
                 <form method="POST" class="needs-validation" id="payment-form">
                     {% csrf_token %}
-                    <input type="text" name="amoun">
                     <!-- <input type="submit"> -->
                 </form>
                 {{form.render}}

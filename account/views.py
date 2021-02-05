@@ -65,7 +65,7 @@ def payment_process(request, membership_id):
     print(amount)
     paypal_dict = {
         "business": "husubayli@gmail.com",
-        "amount": amount,
+        "amount": "",
         "item_name": "name of the item",
         "invoice": "unique-invoice-id",
         "notify_url": request.build_absolute_uri(reverse('core:index')),
