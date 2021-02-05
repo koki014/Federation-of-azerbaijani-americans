@@ -33,11 +33,12 @@
 
                 <h1 id="section-header">Donate</h1>
                 <p id="section-text">Please provide your membership ID</p>
-                <form method="POST" class="needs-validation" novalidate">
+                <form method="POST" class="needs-validation" id="payment-form">
                     {% csrf_token %}
                     <input type="text" name="amoun">
-                    <input type="submit">
+                    <!-- <input type="submit"> -->
                 </form>
+                {{form.render}}
                 <script>
                     function donate_btn() {
                         this.setAttribute('type', 'submit');
@@ -97,7 +98,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
-
+    <script src="{% static 'js/payment.js' %}"></script>
 
 </body>
 
