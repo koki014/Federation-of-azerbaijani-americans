@@ -46,10 +46,12 @@
         
   
       <input type="submit" class="btn btn-primary" value="Donate" id="simple" onclick="donate_btn()">
-      <br>
-      <a href=""><button class="btn btn-primary" id="ananoymous" >Donate as Anonymous</button></a>
-
     </form>
+
+      <!-- <button class="btn btn-primary" id="ananoymous" ><a href="{% url 'account:anonym' %}"></a>Donate as Anonymous</button> -->
+      <a href="{% url 'account:anonym' %}" class="btn btn-primary" id="ananoymous">Donate as Anonymous</a>
+
+   
       <script>
         function donate_btn()
         {

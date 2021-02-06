@@ -6,6 +6,7 @@ from .views import (
     DonateView,
     # DonationUserDetailView,
     payment_process,
+    anonym_payment_process,
 )
 
 app_name = 'account'
@@ -15,7 +16,7 @@ urlpatterns = [
     path("congratulation/", RegisterDoneView.as_view(), name="register_done"),
     path("donate/", DonateView.as_view(), name='donate'),
     path('profile/<str:membership_id>56443323454555/', payment_process, name='profile'),
-    # path('profile/(?P<membership_id>[-\w]+)//',  DonationUserDetailView.as_view(), name='profile'),
+    path('pay-anonym/',  anonym_payment_process, name='anonym'),
 
     # path('payment-process/', payment_process, name='payment_process' ), 
 ]

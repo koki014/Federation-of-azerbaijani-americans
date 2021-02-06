@@ -78,3 +78,23 @@ class ExtPayPalPaymentsForm(PayPalPaymentsForm):
         # format html as you need
         submit_elm = u'''<input type="submit" value="Donate" class="btn my-custom-class" id="simple" style="bacground-color: ;">'''
         return format_html(form_open+self.as_p()+submit_elm+form_close)
+
+
+def anonym_payment_process(request):
+    # user_object = DonationUser.objects.get(membership_id=membership_id)
+    # amount = request.POST.get('amoun')
+    paypal_dict = {
+        "business": "husubayli@gmail.com",
+        "amount": "",
+        "item_name": "name of the item",
+        "invoice": "unique-invoice-id",
+        "notify_url": request.build_absolute_uri(reverse('core:index')),
+        "return": request.build_absolute_uri(reverse('core:index')),
+        "cancel_return": request.build_absolute_uri(reverse('core:index')),
+        # Custom command to correlate to some function later (optional)
+        "custom": "premium_plan",
+    }
+    # Create the instance.
+    form = ExtPayPalPaymentsForm(initial=paypal_dict)
+    context = {"form": form}
+    return render(request, "anonym.html", context)
