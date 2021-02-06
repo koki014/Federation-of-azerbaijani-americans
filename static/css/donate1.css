@@ -1,6 +1,11 @@
 *:focus {
     outline: 0 !important;
 }
+
+#id_amount {
+    width: 100%;
+}
+
 #ananoymous {
     background-color: #fff;
     color: #3c50e0;

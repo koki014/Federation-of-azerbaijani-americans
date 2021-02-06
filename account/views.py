@@ -76,5 +76,5 @@ class ExtPayPalPaymentsForm(PayPalPaymentsForm):
             self.get_endpoint())
         form_close = u'</form>'
         # format html as you need
-        submit_elm = u'''<input type="submit" class="btn btn-success my-custom-class">'''
+        submit_elm = u'''<input type="submit" value="Donate" class="btn my-custom-class" id="simple" style="bacground-color: ;">'''
         return format_html(form_open+self.as_p()+submit_elm+form_close)
