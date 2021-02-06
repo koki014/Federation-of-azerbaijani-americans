@@ -32,7 +32,7 @@
                 <img src="{% static 'images/logo.png' %}" alt="">
 
                 <h1 id="section-header">Donate</h1>
-                <p id="section-text">Please provide your membership ID</p>
+                <p id="section-text">{{user_object.full_name}}</p>
                 <form method="POST" class="needs-validation" id="payment-form">
                     {% csrf_token %}
                     <!-- <input type="submit"> -->
