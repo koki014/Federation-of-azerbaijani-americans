@@ -4,7 +4,7 @@ from django.core.mail import send_mail
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
-
+from core.models import Subscriber
 from .managers import UserManager
 
 
@@ -56,3 +56,21 @@ class DonationUser(models.Model):
     def get_absolute_url(self):
         return reverse_lazy("account:profile", kwargs={"membership_id": self.membership_id})
     
+
+class Message(models.Model):
+    subject = models.CharField(_('Subject'), max_length=80, blank=True)
+    content = models.TextField(_('Content'), blank=True)
+
+    class Meta:
+        verbose_name = 'Message'
+        verbose_name_plural = 'Messages'
+
+    def __str__(self):
+        return self.subject
+
+    def save(self, *args, **kwargs):
+        subscribers = [i for i in Subscriber.objects.all()]
+        print(subscribers)
+        for subscriber in subscribers:
+            send_mail(self.subject, self.content, 'tech.academy.docker@gmail.com', [subscriber.mail])
+        super(Message, self).save(*args, **kwargs)

@@ -1,7 +1,7 @@
 from django_toggle_switch_widget.widgets import DjangoToggleSwitchWidget
 from django.forms import ModelForm
 from django.contrib import admin
-from .models import DonationUser
+from .models import DonationUser, Message
 
 
 class DonationUserModelForm(ModelForm):
@@ -22,3 +22,4 @@ class DonationUserAdmin(admin.ModelAdmin):
 
 
 admin.site.register(DonationUser, DonationUserAdmin)
+admin.site.register(Message)
