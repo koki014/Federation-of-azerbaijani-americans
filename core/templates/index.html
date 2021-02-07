@@ -419,8 +419,40 @@
         <div class="text-center">
             <h2 class="contact-heading text-uppercase">Contact Us</h2>
             <hr class="section-line" style="width: 60px; margin: 50px 47%;">
+            <form id="contactForm" name="sentMessage" name="action" novalidate="novalidate" method="post">
+                    {% csrf_token %}
+                    {{contact_form.non_field_errors}}
+                <div class="row align-items-stretch mb-5">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {{contact_form.name}}
+                            {{contact_form.name.errors}}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {{contact_form.email}}
+                            {{contact_form.email.errors}}
+                        </div>
+                    </div>
+                       
+                     
+                    <div class="col-12">
+                        <div class="form-group form-group-textarea mb-md-0" id="message">
+                            {{contact_form.message}}
+                            {{contact_form.message.errors}}
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div style="background-color: white !important; text-align:center;" class="text-center">
+                        <div id="success"></div>
+                         <input style="float: right text-align:center;" class="btn btn-primary" value='Send' id='sendMessageButton' type="submit"></input>
+                    </div>
+                </div>
+                
+            </form>
 
-        </div>
+        <!-- </div>
         <form id="contactForm"  name="sentMessage" novalidate="novalidate" method="post">
             <input type='hidden' name='action' value='contact_us'> 
             <div class="row align-items-stretch mb-5">
@@ -439,7 +471,7 @@
 
                         
                         <!-- <p class="help-block text-danger"></p> -->
-                    </div>
+                    <!-- </div>
                 </div>
                    
                  
@@ -448,14 +480,14 @@
                         {{contact_form.message}}
                         {{contact_form.message.errors}}
                         <!-- <p class="help-block text-danger"></p> -->
-                    </div>
+                    <!-- </div>
                 </div>
             </div>
             <div class="text-center">
                 <!-- <div id="success"></div> -->
-                <input style="float: right;" class="btn btn-primary" type="submit">  </input>
+                <!-- <input style="float: right;" class="btn btn-primary" type="submit"> Send </input>
             </div>
-        </form>
+        </form> --> 
     </div>
 </section>
 <!-- Contact Section End -->

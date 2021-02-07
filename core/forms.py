@@ -18,16 +18,20 @@ class ContactForm(forms.ModelForm):
             widgets = {
                 
                 'name': forms.TextInput(attrs={
-                    'class': 'form-control col-6',
-                    'placeholder': 'Your Name *'
+                    
+                    'class': 'form-control col-6 ',
+                    'placeholder': 'Name'
+                    
                 }),
                 'email': forms.EmailInput(attrs={
-                    'class': 'form-control col-6',
-                    'placeholder': 'Your Email *'
+                    'class': 'form-control col-6 ',
+                    'placeholder': 'E-mail adress'
                 }),
                 'message': forms.Textarea(attrs={
-                    'class': 'form-control col-12',
-                    'placeholder': 'Your Message'
+                    "rows": "5",
+                    'class': 'form-control col-12 form-group-textarea',
+                    'placeholder': 'Send Message...',
+                    
                 }),
                 
             }
