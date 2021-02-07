@@ -11,16 +11,14 @@ services:
             - ./nginx/conf.d/client_max_body_size.conf:/etc/nginx/conf.d/client_max_body_size.conf:ro
             - ./static/:/ffa/static
             - ./media/:/ffa/media  
-    postges:
+    postgres:
         container_name: postgres_data
         image: postgres:9.6
-
         ports: 
             - 5432:5432
         volumes: 
             - ./postgre_db:/var/lib/postgresql/
         env_file: ./.env
-
     web:
         container_name: ffa
         build: .
@@ -34,4 +32,10 @@ services:
             # - ./media/:/code/media
         depends_on:
             - "postgres"
-        env_file: .env
+        env_file: ./.env
+
+
+networks:
+  default:
+    external:
+      name: nginx-proxy

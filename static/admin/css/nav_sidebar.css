@@ -2,13 +2,12 @@
     position: sticky;
     top: 0;
     max-height: 100vh;
-    display: none;
 }
 
-/* .toggle-nav-sidebar {
+.toggle-nav-sidebar {
     z-index: 20;
     left: 0;
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
     flex: 0 0 23px;
@@ -117,4 +116,4 @@
     .main.shifted > #nav-sidebar + .content {
         max-width: 100%;
     }
-} */
+}
