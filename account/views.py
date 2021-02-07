@@ -1,16 +1,12 @@
 
 from django.urls import reverse_lazy, reverse
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from paypal.standard.forms import PayPalPaymentsForm
 from django.utils.html import format_html
 from django.views.generic import (
     CreateView,
     TemplateView,
-    ListView,
-    FormView,
 )
-from django.views.generic.edit import FormView
-from django.views.generic.detail import DetailView
 from .models import DonationUser
 from .forms import RegisterForm, SignUpForm
 

@@ -27,7 +27,7 @@ class DonationUser(models.Model):
     #moderations
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    is_active = models.BooleanField(_("Active"), default=True)
+    is_active = models.BooleanField(_("Active"), default=False)
 
 
     class Meta:
@@ -40,7 +40,10 @@ class DonationUser(models.Model):
         raw_id = uuid.uuid1()
         raw_membership_id = str(raw_id.int)[:6]
         self.membership_id = f'{raw_membership_id}{self.id}'
-        send_mail('subject', f'This is you membership id {self.membership_id}', 'tech.academy.docker@gmail.com', [self.email,])
+        if self.is_active == True:
+            send_mail('subject', f'This is you membership id {self.membership_id}', 'tech.academy.docker@gmail.com', [self.email,])
+        else:
+            send_mail('subject', f'Your form on review', 'tech.academy.docker@gmail.com', [self.email,])
         super(DonationUser, self).save(*args, **kwargs)
 
     USERNAME_FIELD = ['membership_id']
