@@ -164,9 +164,12 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'tech.academy.docker@gmail.com'
 EMAIL_HOST_PASSWORD = 'suqmnhaxezvemyhn'
 
-
-LOGIN_URL = reverse_lazy('account:login')
-
-LOGIN_REDIRECT_URL = reverse_lazy('core:index')
-
+STATIC_URL = '/static/'
+if PROD:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+else:
+    STATICFILES_DIRS = [
+        BASE_DIR / "static",
+    ]
+    
 PAYPAL_TEST = True

@@ -9,4 +9,4 @@ console.log(form);
 // })
 
 document.querySelector('#id_amount').setAttribute('type', 'text')
-document.querySelector('#id_amount').setAttribute('placeholder', 'Amount in $USD')
+document.querySelector('#id_amount').setAttribute('placeholder', 'Amount in USD')

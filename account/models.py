@@ -34,6 +34,7 @@ class DonationUser(models.Model):
         """Meta definition for Contact."""
         verbose_name = 'Member'
         verbose_name_plural = 'Members'
+        ordering = ('-created_at')
 
     def save(self, *args, **kwargs):
         super(DonationUser, self).save(*args, **kwargs)
@@ -42,8 +43,6 @@ class DonationUser(models.Model):
         self.membership_id = f'{raw_membership_id}{self.id}'
         if self.is_active == True:
             send_mail('subject', f'This is you membership id {self.membership_id}', 'tech.academy.docker@gmail.com', [self.email,])
-        else:
-            send_mail('subject', f'Your form on review', 'tech.academy.docker@gmail.com', [self.email,])
         super(DonationUser, self).save(*args, **kwargs)
 
     USERNAME_FIELD = ['membership_id']
@@ -52,10 +51,7 @@ class DonationUser(models.Model):
 
     def __str__(self):
         created_date = self.created_at.date()
-        if self.is_active == True:
-            return  f'{self.email}{created_date}\t\tActive'
-        else:
-            return f'{self.email}{created_date}Not Active'
+        return  f'{self.email}'
             
     
     def get_absolute_url(self):
