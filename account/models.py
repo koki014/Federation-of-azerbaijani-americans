@@ -53,9 +53,9 @@ class DonationUser(models.Model):
     def __str__(self):
         created_date = self.created_at.date()
         if self.is_active == True:
-            return f'{self.email}---------{created_date}--------Active'
+            return f'{self.email}___________{created_date}___________Active'
         else:
-            return f'{self.email}---------{created_date}--------Not Active'
+            return f'{self.email}___________{created_date}___________Not Active'
             
     
     def get_absolute_url(self):
