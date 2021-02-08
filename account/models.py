@@ -32,8 +32,8 @@ class DonationUser(models.Model):
 
     class Meta:
         """Meta definition for Contact."""
-        verbose_name = 'Donation User'
-        verbose_name_plural = 'Donation Users'
+        verbose_name = 'Member'
+        verbose_name_plural = 'Members'
 
     def save(self, *args, **kwargs):
         super(DonationUser, self).save(*args, **kwargs)
