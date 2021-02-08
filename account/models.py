@@ -51,7 +51,12 @@ class DonationUser(models.Model):
     objects = UserManager()
 
     def __str__(self):
-        return self.email
+        created_date = self.created_at.date()
+        if self.is_active == True:
+            return f'{self.email}---------{created_date}--------Active'
+        else:
+            return f'{self.email}---------{created_date}--------Not Active'
+            
     
     def get_absolute_url(self):
         return reverse_lazy("account:profile", kwargs={"membership_id": self.membership_id})
