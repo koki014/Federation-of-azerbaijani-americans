@@ -18,11 +18,6 @@ class RegisterCreateView(CreateView):
     template_name = "registration.html"
     # success_url = reverse_lazy('core:index')
 
-    # def get_object(self):
-    #     obj = super().get_object()
-    #     obj = get_object_or_404(DonationUser, membership_id=self.kwargs.get('membership_id'))
-    #     return obj
-
     def get_success_url(self):
         print('here', reverse_lazy('account:register_done', kwargs={'pk': self.object.id}))
         return reverse_lazy('account:register_done', kwargs={'pk': self.object.id})

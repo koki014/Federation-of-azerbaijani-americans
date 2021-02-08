@@ -16,7 +16,7 @@ class DonationUserAdmin(admin.ModelAdmin):
     form = DonationUserModelForm
     list_display = ('email', 'created_at', 'is_active')
     readonly_fields = ('membership_id',)
-    ordering = ('email',)
+    ordering = ('-id',)
     search_fields = ('full_name',)
 
 # class MessageAdmin(admin.ModelAdmin):
