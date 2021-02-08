@@ -34,7 +34,7 @@ class DonationUser(models.Model):
         """Meta definition for Contact."""
         verbose_name = 'Member'
         verbose_name_plural = 'Members'
-        ordering = ('-created_at')
+        ordering = ('-created_at',)
 
     def save(self, *args, **kwargs):
         super(DonationUser, self).save(*args, **kwargs)
