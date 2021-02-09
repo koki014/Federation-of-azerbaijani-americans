@@ -21,6 +21,7 @@
 
  <!-- Own css link -->
  <link rel="stylesheet" href="{% static 'css/donate1.css' %}">
+ <link rel="stylesheet" href="{% static 'css/registration.css' %}">
 <body>
     <div class="container-fluid">
 <div class="row">
@@ -36,7 +37,7 @@
     {% else %}
       <p id="section-text">Please provide your membership ID</p>
     {% endif %}
-    <form method="POST" class="needs-validation" novalidate>
+    <form method="POST" class="needs-validation" novalidate id="don-form">
       {% csrf_token %}
       {{ form.none_field_errors }}
       <div class="form-row">
@@ -109,6 +110,12 @@
       })();
       </script>
   <!--Bootstrap  JavaScript link-->
+  <script>
+    document.querySelector("#don-form").addEventListener('submit', function (e) {
+      // e.preventDefault();
+      document.querySelector("#validationCustom03").style.border = "1px solid  #b11b31"
+    })
+  </script>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
   integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
   crossorigin="anonymous"></script>
