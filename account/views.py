@@ -19,7 +19,7 @@ class RegisterCreateView(CreateView):
     # success_url = reverse_lazy('core:index')
 
     def get_success_url(self):
-        print('here', reverse_lazy('account:register_done', kwargs={'pk': self.object.id}))
+        # print('here', reverse_lazy('account:register_done', kwargs={'pk': self.object.id}))
         return reverse_lazy('account:register_done', kwargs={'pk': self.object.id})
 
 
@@ -30,7 +30,7 @@ class RegisterDoneView(DetailView):
 
     def get_context_data(self, **kwargs):
         user = self.get_object()
-        print(user.email, user.membership_id)
+        # print(user.email, user.membership_id)
         if user.is_active == True:
             send_mail('subject', f'This is you membership id {user.membership_id}', 'tech.academy.docker@gmail.com', [user.email,])
         else:
@@ -56,9 +56,10 @@ class DonateView(TemplateView):
             membership_id = request.POST.get('membership_id')
             user = DonationUser.objects.filter(
                 membership_id=membership_id).first()
-            if not user:
-                return redirect('account:donate')
-            return redirect(user.get_absolute_url())
+            if user is not None:
+                return redirect(user.get_absolute_url())
+            context = {'message': 'User with this membership id does not exsist', "form": form}
+            return render(request, self.template_name, context)
         context = {'form': form}
         return render(request, self.template_name, context)
 

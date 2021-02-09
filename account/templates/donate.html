@@ -31,7 +31,11 @@
     <img src="{% static 'images/logo.png' %}" alt="">
 
     <h1 id="section-header">Donate</h1>
-    <p id="section-text">Please provide your membership ID</p>
+    {% if message %}
+      <p id="section-text" class="text-danger">{{ message }}</p>
+    {% else %}
+      <p id="section-text">Please provide your membership ID</p>
+    {% endif %}
     <form method="POST" class="needs-validation" novalidate>
       {% csrf_token %}
       {{ form.none_field_errors }}
@@ -40,8 +44,9 @@
           <p>{{ form.membership_id }}</p>
           <p>{{ form.membership_id.errors }}</p>
           <!-- <input  class="form-control form-elements"  placeholder="ID" name="id" id="validationCustom03" required> -->
-          <div class="invalid-feedback">
-            your email adress in invalid          </div>
+          {% if message %}
+            <div class="invalid-feedback"> your email adress in invalid  </div>
+          {% endif %}
       
         
   

@@ -17,7 +17,7 @@ class DonationUserAdmin(admin.ModelAdmin):
     list_display = ('email', 'created_at', 'is_active')
     readonly_fields = ('membership_id',)
     ordering = ('-id',)
-    search_fields = ('full_name',)
+    search_fields = ('email',)
 
 # class MessageAdmin(admin.ModelAdmin):
 #     change_form_template = "admin/send_message.html"
