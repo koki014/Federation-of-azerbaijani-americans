@@ -57,7 +57,8 @@ class DonateView(TemplateView):
             user = DonationUser.objects.filter(
                 membership_id=membership_id).first()
             if user is not None:
-                return redirect(user.get_absolute_url())
+                if user.is_active:
+                    return redirect(user.get_absolute_url())
             context = {'message': 'User with this membership id does not exsist', "form": form}
             return render(request, self.template_name, context)
         context = {'form': form}
