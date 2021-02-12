@@ -25,10 +25,8 @@
 <body>
     <div class="container-fluid">
 <div class="row">
-  <div class="col-md-6">
-<img id="left" src="{% static 'images/left-illustration.png' %}" alt="">
-  </div>
-<div class="right col-md-6">
+  
+<div class="right col-md-12">
     <img src="{% static 'images/logo.png' %}" alt="">
 
     <h1 id="section-header">Donate</h1>
@@ -49,10 +47,11 @@
             <div class="invalid-feedback"> your email adress in invalid  </div>
           {% endif %}
       
-        
+        <br>
   
       <input type="submit" class="btn btn-primary" value="Donate" id="simple" onclick="donate_btn()">
     </form>
+    <br>
 
       <!-- <button class="btn btn-primary" id="ananoymous" ><a href="{% url 'account:anonym' %}"></a>Donate as Anonymous</button> -->
       <a href="{% url 'account:anonym' %}" class="btn btn-primary" id="ananoymous">Donate as Anonymous</a>

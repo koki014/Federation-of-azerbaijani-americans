@@ -22,13 +22,20 @@
 <!-- Own css link -->
 <link rel="stylesheet" href="{% static 'css/donate1.css' %}">
 
+<style>
+    #id_amount {
+        display: block;
+        border-radius: 4px;
+        margin: auto;
+
+    }
+</style>
+
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
-                <img id="left" src="{% static 'images/left-illustration.png' %}" alt="">
-            </div>
-            <div class="right col-md-6">
+            
+            <div class="right col-md-12">
                 <img src="{% static 'images/logo.png' %}" alt="">
 
                 <h1 id="section-header">Donate</h1>

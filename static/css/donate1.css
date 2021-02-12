@@ -132,5 +132,5 @@ input {
 .container-fluid{
     background-image: url(../images/left-illustration.png);
     background-repeat: no-repeat;
-    
+    background-size: contain;
 }
