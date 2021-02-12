@@ -8,7 +8,7 @@ function showTab(n) {
   //... and fix the Next buttons:
  
   if (n == (x.length -1)) {
-    document.getElementById("button-cont").innerHTML = `<input class="submit_btn" type="submit"></input>`;
+    document.getElementById("button-cont").innerHTML = `<input class="submit_btn" type="submit" style="background: #3C50E0; color: white;"></input>`;
   } else {
     document.getElementById("nextBtn").innerHTML = "Next";
   }

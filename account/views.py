@@ -16,27 +16,15 @@ class RegisterCreateView(CreateView):
     model = DonationUser
     form_class = RegisterForm
     template_name = "registration.html"
-    # success_url = reverse_lazy('core:index')
+    success_url = reverse_lazy('account:register_done')
 
-    def get_success_url(self):
-        # print('here', reverse_lazy('account:register_done', kwargs={'pk': self.object.id}))
-        return reverse_lazy('account:register_done', kwargs={'pk': self.object.id})
+    # def get_success_url(self):
+    #     # print('here', reverse_lazy('account:register_done', kwargs={'pk': self.object.id}))
+    #     return reverse_lazy('account:register_done', kwargs={'pk': self.object.id})
 
 
-class RegisterDoneView(DetailView):
-    model = DonationUser
+class RegisterDoneView(TemplateView):
     template_name = 'congratulation.html'
-    context_object_name = 'us'
-
-    def get_context_data(self, **kwargs):
-        user = self.get_object()
-        # print(user.email, user.membership_id)
-        if user.is_active == True:
-            send_mail('subject', f'This is you membership id {user.membership_id}', 'tech.academy.docker@gmail.com', [user.email,])
-        else:
-            send_mail('subject', f'Your form on review', 'tech.academy.docker@gmail.com', [user.email,])
-        context = super().get_context_data(**kwargs)
-        return context
 
 
 class DonateView(TemplateView):
