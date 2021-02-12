@@ -83,10 +83,11 @@
         <img src="{% static 'images/logo.png' %}" alt="Logo">
     </div>
     <ul class="nav-links">
-        <li><a href="#contact">Conctact us</a></li>
-        <li><a href="#aboutus">About us</a></li>
-        <li><a href="#membership">Membership for Benefits</a></li>
-        <li><a href="{% url 'account:register' %}" id="membership-btn">Apply for Membership</a></li>
+        <li><a data-target="contact" data-toggle="goto" href="javascript:;">Contact Us</a></li>
+        <li><a data-target="aboutus" data-toggle="goto" href="javascript:;">About Us</a></li>
+        <li><a data-target="membership" data-toggle="goto" href="javascript:;">Membership for Benefits</a></li>
+        <li><a id="membership-btn"  href="{% url 'account:register' %}" id="membership-btn">Apply for Membership</a></li>
+
     </ul>
     <div class="burger">
         <div class="line1"></div>
@@ -410,6 +411,8 @@ navSlide();
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    
 
 </body>
 
