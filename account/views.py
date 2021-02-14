@@ -57,7 +57,7 @@ def payment_process(request, membership_id):
     user_object = DonationUser.objects.get(membership_id=membership_id)
     # amount = request.POST.get('amoun')
     paypal_dict = {
-        "business": "husubayli@gmail.com",
+        "business": "faa.us.org@gmail.com",
         "amount": "",
         "item_name": "name of the item",
         "invoice": "unique-invoice-id",

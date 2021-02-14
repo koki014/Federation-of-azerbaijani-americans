@@ -172,4 +172,4 @@ else:
         BASE_DIR / "static",
     ]
     
-PAYPAL_TEST = True
+PAYPAL_TEST = False
