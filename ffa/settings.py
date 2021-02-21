@@ -147,22 +147,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 STATIC_URL = '/static/'
-
-if PROD:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-else:
-    STATICFILES_DIRS = [
-        BASE_DIR / "static",
-    ]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 # Email Settings
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'husubayli@gmail.com'
 EMAIL_HOST_PASSWORD = 'xdjnasiuddxikfax'
@@ -170,11 +167,11 @@ EMAIL_HOST_PASSWORD = 'xdjnasiuddxikfax'
 
 
 STATIC_URL = '/static/'
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+if PROD:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+else:
+    STATICFILES_DIRS = [
+        BASE_DIR / "static",
+    ]
     
-PAYPAL_TEST = False
+PAYPAL_TEST = True
