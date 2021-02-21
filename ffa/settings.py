@@ -167,6 +167,7 @@ EMAIL_HOST_PASSWORD = 'xdjnasiuddxikfax'
 
 
 STATIC_URL = '/static/'
+
 if PROD:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 else:
