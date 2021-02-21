@@ -1,5 +1,5 @@
 location /static/ {
-    alias /ffa/staticfiles/;
+    alias /ffa/static/;
 }
 location /media/ {
     alias /ffa/media/;
