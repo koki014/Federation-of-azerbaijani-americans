@@ -169,10 +169,10 @@ EMAIL_HOST_PASSWORD = 'xdjnasiuddxikfax'
 STATIC_URL = '/static/'
 
 if PROD:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 else:
     STATICFILES_DIRS = [
-        BASE_DIR / "static",
+        BASE_DIR / "staticfiles",
     ]
     
 PAYPAL_TEST = True
