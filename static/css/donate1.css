@@ -132,5 +132,13 @@ input {
 .container-fluid{
     background-image: url(../images/left-illustration.png);
     background-repeat: no-repeat;
-    background-size: contain;
+    
+}
+#simple:hover{
+    background-color: #5062e4;
+
+}
+#ananoymous:hover{
+    background-color: #5062e4;
+  color: white;
 }

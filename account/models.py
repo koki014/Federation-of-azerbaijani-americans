@@ -42,9 +42,9 @@ class DonationUser(models.Model):
         raw_membership_id = str(raw_id.int)[:6]
         self.membership_id = f'{raw_membership_id}{self.id}'
         if self.is_active == True:
-            send_mail('subject', f'This is you membership id {self.membership_id}', 'tech.academy.docker@gmail.com', [self.email,])
+            send_mail('subject', f'This is you membership id {self.membership_id}', 'muradaghazada@outlook.com', [self.email,])
         else:
-            send_mail('subject', f'Your form on review', 'tech.academy.docker@gmail.com', [self.email,])
+            send_mail('subject', f'Your form on review', 'muradaghazada@outlook.com', [self.email,])
         super(DonationUser, self).save(*args, **kwargs)
 
     USERNAME_FIELD = ['membership_id']
@@ -75,5 +75,5 @@ class Message(models.Model):
         subscribers = [i for i in Subscriber.objects.all()]
         print(subscribers)
         for subscriber in subscribers:
-            send_mail(self.subject, self.content, 'tech.academy.docker@gmail.com', [subscriber.mail])
+            send_mail(self.subject, self.content, 'muradaghazada@outlook.com', [subscriber.mail])
         super(Message, self).save(*args, **kwargs)

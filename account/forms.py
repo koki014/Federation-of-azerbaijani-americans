@@ -34,9 +34,15 @@ class RegisterForm(forms.ModelForm):
             ),
             'birthday': forms.DateInput(
                 attrs={
+                    'id': 'date',
                     'name': 'dd',
+                    'type': 'date',
                     'class': 'form-elements',
-                    'placeholder': 'Date of Birth. Format: YYYY-MM-DD'
+                    'placeholder': 'Date of Birth',
+                    'onfocus': "(this.type='date')",
+                    'onblur': "(this.type='text')",
+                    'oninput': "this.className = ''"
+                    
                 }
             ),
             'email':  forms.EmailInput(
