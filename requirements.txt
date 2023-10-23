@@ -7,7 +7,7 @@ django-paypal==1.0.0
 django-suit @ https://github.com/darklow/django-suit/tarball/v2
 django-toggle-switch-widget==0.1.1
 idna==2.10
-psycopg2-binary==2.8.6
+#psycopg2-binary==2.8.6
 pycodestyle==2.6.0
 pytz==2020.5
 requests==2.25.1
